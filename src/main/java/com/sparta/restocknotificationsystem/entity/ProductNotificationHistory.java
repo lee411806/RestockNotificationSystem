@@ -1,11 +1,18 @@
 package com.sparta.restocknotificationsystem.entity;
 
+import com.sparta.restocknotificationsystem.enums.NotificationStatus;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "product_notification_history", indexes = {
         @Index(name = "idx_product_id_restock_count", columnList = "product_id, restock_count")
 })
+@NoArgsConstructor
+@Getter
+@Setter
 public class ProductNotificationHistory {
 
     @Id
@@ -27,9 +34,12 @@ public class ProductNotificationHistory {
     @Column(name = "last_sent_user_id")
     private Long lastSentUserId;
 
+    public ProductNotificationHistory(Long productId, Integer restockCount, NotificationStatus notificationStatus) {
+        this.product = product;
+        this.restockCount = restockCount;
+        this.notificationStatus = notificationStatus;
+    }
+
     // Getters and Setters
 }
 
-enum NotificationStatus {
-    IN_PROGRESS, CANCELED_BY_SOLD_OUT, CANCELED_BY_ERROR, COMPLETED
-}

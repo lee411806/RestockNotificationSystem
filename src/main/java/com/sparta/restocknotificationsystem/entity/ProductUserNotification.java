@@ -1,11 +1,17 @@
 package com.sparta.restocknotificationsystem.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "product_user_notification", indexes = {
         @Index(name = "idx_product_id_user_id", columnList = "product_id, user_id")
 })
+@NoArgsConstructor
+@Getter
+@Setter
 public class ProductUserNotification extends Timestamp {
 
     @Id

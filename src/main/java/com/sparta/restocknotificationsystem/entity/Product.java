@@ -1,7 +1,9 @@
 package com.sparta.restocknotificationsystem.entity;
 
+import com.sparta.restocknotificationsystem.enums.StockStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
@@ -10,6 +12,7 @@ import java.util.List;
 @Setter
 @Entity
 @Table(name = "product")
+@NoArgsConstructor
 public class Product {
 
     @Id
@@ -27,8 +30,8 @@ public class Product {
     // ProductNotificationHistory와의 일대다 관계
     @OneToMany(mappedBy = "product")
     private List<ProductNotificationHistory> notificationHistories;
+
+
 }
 
-enum StockStatus {
-    IN_STOCK, OUT_OF_STOCK
-}
+

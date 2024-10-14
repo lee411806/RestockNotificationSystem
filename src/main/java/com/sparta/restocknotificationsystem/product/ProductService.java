@@ -13,7 +13,7 @@ public class ProductService {
     //재입고 회차 증가
 
     // 재입고 회차 증가 로직
-    public void increaseRestockCount(Long productId) {
+    public Product increaseRestockCount(Long productId) {
         Product product = productRepository.findById(productId)
                 .orElseThrow(() -> new IllegalArgumentException("Product not found"));
 
@@ -22,6 +22,7 @@ public class ProductService {
 
         productRepository.save(product); // 변경된 정보 저장
 
+        return product;
     }
 
 }

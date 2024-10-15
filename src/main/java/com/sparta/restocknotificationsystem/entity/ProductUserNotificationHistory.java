@@ -35,7 +35,7 @@ public class ProductUserNotificationHistory {
     @Temporal(TemporalType.TIMESTAMP)
     private Date sentAt = new Date();
 
-    public ProductUserNotificationHistory(Long productId, Long userId, Integer restockCount) {
+    public ProductUserNotificationHistory(Product product, Long userId, Integer restockCount) {
         this.product = product;
         this.userId = userId;
         this.restockCount = restockCount;

@@ -34,7 +34,7 @@ public class ProductNotificationHistory {
     @Column(name = "last_sent_user_id")
     private Long lastSentUserId;
 
-    public ProductNotificationHistory(Long productId, Integer restockCount, NotificationStatus notificationStatus) {
+    public ProductNotificationHistory(Product product, Integer restockCount, NotificationStatus notificationStatus) {
         this.product = product;
         this.restockCount = restockCount;
         this.notificationStatus = notificationStatus;
